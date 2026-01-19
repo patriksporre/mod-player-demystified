@@ -1,0 +1,14 @@
+{
+  "name": "mod-player-demystified",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "serve": "http-server --cors -c-1 .",
+    "watch": "tsc -w -p tsconfig.json"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "typescript": "^5.9.3"
+  }
+}

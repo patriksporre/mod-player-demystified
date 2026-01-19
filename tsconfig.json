@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "es2020",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "rootDir": "./source",
+    "outDir": "./build",
+    "skipLibCheck": true
+  },
+  "include": ["source/**/*.ts"]
+}
