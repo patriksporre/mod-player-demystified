@@ -6,18 +6,19 @@
  *
  * Description:
  *   Minimal demo runner.
- *   - Calls initialize() once
- *   - Calls render() every animation frame
+ *   - Clears the document body
+ *   - Calls demo.init() once
+ *   - Calls demo.render() every animation frame
  *   - Space toggles pause/resume
  */
 
 import type { Demo } from "./demo.js";
 
 export async function runner(path: string): Promise<void> {
-  if (!path) throw new Error("No path!");
+  if (!path) throw new Error("Runner:: no path");
 
   const body: HTMLElement = document.body;
-  if (!body) throw new Error("Missing <body> element in index.html!");
+  if (!body) throw new Error("Runner:: missing <body> element");
 
   // Clear anything in the <body>
   body.innerHTML = "";
@@ -27,7 +28,6 @@ export async function runner(path: string): Promise<void> {
   demo.init(body);
 
   let running: boolean = true;
-
   let elapsed: number = 0;
   let past: number = performance.now();
 
@@ -39,7 +39,7 @@ export async function runner(path: string): Promise<void> {
     const delta: number = (timestamp - past) / 1000;
     past = timestamp;
 
-    elapsed = elapsed + delta;
+    elapsed += delta;
 
     demo.render(elapsed, delta);
 
@@ -50,7 +50,7 @@ export async function runner(path: string): Promise<void> {
     if (event.code === "Space") {
       running = !running;
 
-      // Prevent a huge delta after a pause
+      // Prevent a huge delta after pause
       past = performance.now();
 
       if (running) requestAnimationFrame(frame);

@@ -6,7 +6,8 @@
     "strict": true,
     "rootDir": "./source",
     "outDir": "./build",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "removeComments": true
   },
   "include": ["source/**/*.ts"]
 }

@@ -12,21 +12,21 @@
 
 let time: HTMLElement | null = null;
 
-export function init(body: HTMLElement): void {
+export function init(application: HTMLElement): void {
   const title: HTMLElement = document.createElement("h1");
   title.textContent = "MOD Player Demystified";
-  body.appendChild(title);
+  application.appendChild(title);
 
   const info: HTMLElement = document.createElement("p");
-  info.textContent = "Demo 00-template. Press Space to pause/resume"
-  body.appendChild(info);
+  info.textContent = "Demo 00-template. Press Space to pause/resume.";
+  application.appendChild(info);
 
   time = document.createElement("div");
   time.style.fontFamily = "monospace";
   time.textContent = "elapsed: 0.000 s";
-  body.appendChild(time);
+  application.appendChild(time);
 }
 
-export function render(elapsedTime: number, deltaTime: number): void {
+export function render(elapsedTime: number, _deltaTime: number): void {
   if (time) time.textContent = "elapsed: " + elapsedTime.toFixed(3) + " s";
 }
